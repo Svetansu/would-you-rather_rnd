@@ -1,6 +1,113 @@
-  
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  min-width: 290px;
+  color: white;
+  background-color: rgb(28, 234, 156);
+  font-family: "Product Sans", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+h2{
+  color: black;
+}
+
+.header{
+  background-color: rgba(0,0,0, 0.4);
+  width: 100%;
+  position: relative;
+  padding: 2rem 0;
+  border-radius: 40px;
+}
+.header h1{
+  margin: 2rem;
+  display: inline;
+}
+nav{
+  font-family: "Product Sans", "Helvetica", "Arial", sans-serif;
+  position: absolute;
+  color: white;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+nav ul{
+  margin-right: 1.2rem
+}
+nav ul li{
+  list-style: none;
+  display: inline;
+  margin-left: 1rem;
+}
+nav ul li a{
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+nav ul li a:hover{
+  color: rgba(255,255,255,1);
+}
+nav .but{
+  color: white;
+  padding: 10px 10px 5px 10px;
+  margin: 0px 50px 0px 50px;
+  border: 0px;
+  font-family: "Product Sans", "Helvetica", "Arial", sans-serif;
+  border-radius: 15px;
+  background-color: rgba(220,0,0,0.5);
+}
+nav .but:hover{
+  background-color: rgba(220,0,0,1);
+}
+nav .user-details{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 1rem;
+}
+.ldr{
+  color: black;
+}
+.component-container{
+  max-width: 1200px;
+  width: 100%;
+  margin: 80px auto 0 auto;
+}
+.signin-component-container{
+  max-width: 1200px;
+  width: 100%;
+  margin: 80px auto 0 auto;
+  text-align: center;
+}
+.form-container{
+  margin: 50px auto 100px auto;
+  width: 100%;
+  max-width: 500px;
+  background-color: rgba(255,255,255,1);
+  padding: 50px;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.signin-form{
+  width: 100%;
+  max-width: 500px;
+  padding: 100px;
+}
+.select-avatar{
+  margin-right: 1rem;
+}
+.question-container{
+  padding: 1rem 2rem 2rem 2rem;
+  margin: 1rem 1rem 2rem 1rem;
+  text-decoration: none;
+}
+
+.question-author-details{
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
 }

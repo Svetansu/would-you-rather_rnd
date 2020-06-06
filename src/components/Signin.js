@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import { setAuthedUser } from '../actions/authedUser'
 
 class Signin extends Component {
@@ -24,19 +30,38 @@ class Signin extends Component {
         const { users } = this.props
 
         return (
-            <div>
-                Sign In page
-                <br />
-                <select defaultValue='0' onChange={(e)=>this.handleUserSelect(e.target.value)}>
-                    <option value='0' disabled>Select User</option>
-                    {users && 
-                        Object.keys(users).map(user => (
-                            <option key={user} value={user}>{users[user].name}</option>
-                        ))
-                    }
-                </select>
-                <br />
-                <button onClick={this.handleSubmit} disabled={!this.state.selectedUser}>Login</button>
+            <div className="signin-component-container">
+                <h2>
+                    Signin to create poll, vote and compete in leaderboard
+                </h2>
+                <FormControl className='signin-form'>
+                    <InputLabel htmlFor="select-user">Select User</InputLabel>
+                    <Select
+                        value={this.state.selectedUser}
+                        onChange={(e)=>this.handleUserSelect(e.target.value)}
+                        inputProps={{
+                            name: 'user',
+                            id: 'select-user',
+                        }}
+                        fullWidth
+                    >
+                        {users && 
+                            Object.keys(users).map(user => (
+                                <MenuItem key={user} value={user}>
+                                    <Avatar alt={users[user].name+' profile picture'} src={users[user].avatarURL} className="select-avatar" />                                    
+                                    {users[user].name}
+                                </MenuItem>
+                            ))
+                        }
+                    </Select>
+                </FormControl><br />
+                <Button variant="contained" color="primary" 
+                    onClick={this.handleSubmit} 
+                    disabled={!this.state.selectedUser}
+                    style={{marginTop: '1rem'}}
+                >
+                    Signin
+                </Button>
             </div>
         )
     }

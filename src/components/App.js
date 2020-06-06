@@ -19,16 +19,23 @@ class App extends Component {
       <Router>
         <div>
           <LoadingBar />
+          <div className="header">
+            <h1>
+              Would You Rather
+            </h1>
+            {this.props.signedIn && 
+              <Navbar authedUser={this.props.authedUserName} authedUserAvatar={this.props.authedUserAvatar} />
+            }
+          </div>
           {
-            this.props.signedIn === true 
+            !this.props.signedIn 
             ? <Signin /> 
             : <div>
-                  <Navbar authedUser={this.props.authedUser} />
-                  <Route path='/' exact component={Dashboard} />
-                  <Route path='/questions/:id' component={QuestionDetails} />
-                  <Route path='/add' component={NewQuestion} />
-                  <Route path='/leaderboard' component={Leaderboard} />
-                </div>
+                <Route path='/' exact component={Dashboard} />
+                <Route path='/questions/:id' component={QuestionDetails} />
+                <Route path='/add' component={NewQuestion} />
+                <Route path='/leaderboard' component={Leaderboard} />
+              </div>
           }
         </div>
       </Router>
@@ -36,10 +43,11 @@ class App extends Component {
   }
 }
 
-function mapStateToProps ({ authedUser }) {
+function mapStateToProps ({ authedUser, users }) {
   return {
-    signedIn: authedUser === null,
-    authedUser
+    signedIn: authedUser !== null,
+    authedUserName: authedUser ? users[authedUser].name : '',
+    authedUserAvatar: authedUser ? users[authedUser].avatarURL : '',
   }
 }
 

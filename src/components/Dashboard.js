@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import AppBar from '@material-ui/core/AppBar';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Question from './Question';
@@ -18,29 +19,33 @@ class Dashboard extends Component {
         const { value } = this.state;
 
         return (
-            <div>
-                <AppBar position="static">
-                    <Tabs value={value} onChange={this.handleChange}>
+            <div className='component-container'>
+                <Paper elevation={5}>
+                    <Tabs value={value} onChange={this.handleChange} centered>
                         <Tab label="Unanswered Questions" />
                         <Tab label="Answered Questions" />
                     </Tabs>
-                </AppBar>
+                </Paper>
                 {value === 0 && 
                     <div>
-                        {this.props.unansweredQuestionIds.map(id => (
-                            <li key={id}>
-                                <Question id={id} />
-                            </li>
-                        ))}
+                        <Grid container spacing={16} style={{marginTop: '1rem'}}>
+                            {this.props.unansweredQuestionIds.map(id => (
+                                <Grid item spacing={10} xs={12} sm={6} key={id} >
+                                    <Question id={id} />
+                                </Grid>
+                            ))}
+                        </Grid>
                     </div>
                 }
                 {value === 1 && 
-                    <div>
-                        {this.props.answeredQuestionIds.map(id => (
-                            <li key={id}>
-                                <Question id={id} />
-                            </li>
-                        ))}
+                    <div className="queen">
+                        <Grid container spacing={16} style={{marginTop: '1rem'}}>
+                            {this.props.answeredQuestionIds.map(id => (
+                                <Grid item xs={12} sm={6} key={id}>
+                                    <Question id={id} />
+                                </Grid>
+                            ))}
+                        </Grid>
                     </div>
                 }
             </div>

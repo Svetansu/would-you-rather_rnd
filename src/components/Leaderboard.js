@@ -1,36 +1,48 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
+import Typography from '@material-ui/core/Typography'
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import Avatar from '@material-ui/core/Avatar';
+import Paper from '@material-ui/core/Paper';
+import Divider from '@material-ui/core/Divider';
 
-class Leaderboard extends Component {
-    render() {
-        const { authedUser, leaderboardData } = this.props
-
-        return (
-            <div>
-                Leaderboard component
-                {leaderboardData ? 
-                    leaderboardData.map(user => (
-                        <div key={user.id} style={{background: user.id===authedUser ? 'yellow' : 'none'}}>
-                            {user.name}
-                            <li>
-                                Answered Questions: {user.answeredQuestions}
-                            </li>
-                            <li>
-                                Created Questions: {user.createdQuestions}
-                            </li>
-                            <li>
-                                Total: {user.answeredQuestions+user.createdQuestions}
-                            </li>
-                            <hr />
-                        </div>
+const Leaderboard = props => (
+    <div className='component-container'>
+        <h1 className="ldr">
+            Leaderboard
+        </h1>
+        <br />
+        <Paper elevation={8}>
+            <List style={{padding: '1rem 1rem 1rem 1rem'}}>
+                {props.leaderboardData ? 
+                    props.leaderboardData.map(user => (
+                        <div key={user.id} style={{background: user.id === props.authedUser ? 'yellow' : 'none'}}>
+                            <ListItem>
+                                <Avatar alt={user.name + ' profile picture'} src={user.avatarURL}></Avatar>
+                                <ListItemText primary={user.name} secondary={
+                                    <span>
+                                        <span>Answered Questions: {user.answeredQuestions}</span> {' | '}
+                                        <span>Created Questions: {user.createdQuestions}</span>
+                                    </span>
+                                } />
+                                <ListItemSecondaryAction style={{marginRight: '2rem'}}>
+                                    <Typography variant="title">
+                                        {user.answeredQuestions+user.createdQuestions}
+                                    </Typography>
+                                </ListItemSecondaryAction>
+                            </ListItem>
+                            <Divider inset component="li"  />
+                        </div>                                
                     ))
-                : null
+                    : <div>No data available</div>
                 }
-            </div>
-        )
-    }
-}
-
+            </List>
+        </Paper>
+    </div>
+)
 
 function mapStateToProps ({ authedUser, users, questions }) {
     const leaderboardData = Object.keys(users).map(user => ({
@@ -46,6 +58,5 @@ function mapStateToProps ({ authedUser, users, questions }) {
         leaderboardData
     }
 }
-
 
 export default connect(mapStateToProps)(Leaderboard)
