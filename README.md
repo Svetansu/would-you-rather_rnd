@@ -4,7 +4,7 @@ This project is my first submission for the "Would You Rather?" react-redux appl
 
 ## About...
 
-"Would You Rather?" is an application based on a game with the same name. The app allows user to sign-in, post questions and answer questions posted by other users.A leaderboard functionality is present to maintain scores, based on the number of questions a user has posted and/or answered. React & Redux were the main technologies used to build the application. 'react-redux', 'redux-thunk', 'react-router' and libraries from Material UI are used in the project.
+"Would You Rather?" is an application based on a game with the same name. The app allows user to sign-in, post questions and answer questions posted by other users. A leaderboard functionality is present to maintain scores, based on the number of questions a user has posted and/or answered. React & Redux were the main technologies used to build the application. 'react-redux', 'redux-thunk', 'react-router' and libraries from Material UI are used in the project.
 
 I have added some information below to make understanding my work easier:
 
