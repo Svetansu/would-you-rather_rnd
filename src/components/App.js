@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
-import LoadingBar from 'react-redux-loading'
-import { handleInitialData } from '../actions/shared'
+import LoadingBar from 'react-redux-loading';
+import { handleInitialData } from '../actions/shared';
 import Dashboard from './Dashboard';
-import Signin from './Signin'
+import Signin from './Signin';
 import NewQuestion from './NewQuestion';
-import QuestionDetails from './QuestionDetails'
-import Leaderboard from './Leaderboard'
-import Navbar from './Navbar'
+import QuestionDetails from './QuestionDetails';
+import Leaderboard from './Leaderboard';
+import Navbar from './Navbar';
 
 class App extends Component {
   componentDidMount () {

@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import { handleAddQuestion } from '../actions/questions'
-
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { handleAddQuestion } from '../actions/questions';
 
 class NewQuestion extends Component {
     state = {

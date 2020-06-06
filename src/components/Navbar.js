@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Avatar from '@material-ui/core/Avatar';
-import { NavLink } from 'react-router-dom'
-import { setAuthedUser } from '../actions/authedUser'
+import { NavLink } from 'react-router-dom';
+import { setAuthedUser } from '../actions/authedUser';
 
 class Navbar extends Component {
     handleLogout = () => {

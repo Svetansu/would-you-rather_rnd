@@ -1,6 +1,6 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import Question from './Question'
+import React from 'react';
+import { connect } from 'react-redux';
+import Question from './Question';
 
 const QuestionDetails = props => (
     <div className='component-container'>
